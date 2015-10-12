@@ -12,7 +12,7 @@ namespace Simulateur_des
         public Boolean pipe;
         public int[] Valeurs;
 
-        public DeGenerique(int f)
+        public DeGenerique(int f = 6)
         {
             Face = f;
             pipe = false;
