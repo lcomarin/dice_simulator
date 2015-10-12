@@ -333,9 +333,8 @@ namespace Simulateur_des
         {
             if (nb_des.Text == "")
             {
-                MessageBox.Show("Il n'y a pas de dés à retirer", "Soustraction impossible");
             }
-            else if (nb_des.Text == "1")
+            else if(nb_des.Text == "1")
             {
                 nb_des.Text = "";
             }
@@ -367,19 +366,19 @@ namespace Simulateur_des
                         }
                         else
                         {
-                            show = "Loupé! Au joueur suivant!Votre résultat: " + l.Lancers[0] + " " + l.Lancers[1] + " " + l.Lancers[2];
+                            show = "Loupé! Au joueur suivant! Votre résultat: " + l.Lancers[0] + " " + l.Lancers[1] + " " + l.Lancers[2];
                         }
 
                     }
                     else
                     {
-                        show = "Loupé! Au joueur suivant!Votre résultat: " + l.Lancers[0] + " " + l.Lancers[1] + " " + l.Lancers[2];
+                        show = "Loupé! Au joueur suivant! Votre résultat: " + l.Lancers[0] + " " + l.Lancers[1] + " " + l.Lancers[2];
                     }
 
                 }
                 else
                 {
-                    show = "Loupé! Au joueur suivant!Votre résultat: " + l.Lancers[0] + " " + l.Lancers[1] + " " + l.Lancers[2];
+                    show = "Loupé! Au joueur suivant! Votre résultat: " + l.Lancers[0] + " " + l.Lancers[1] + " " + l.Lancers[2];
                     //}
                     //Thread.Sleep(2500);
                     //AffRes.Invoke((Action)(() =>
@@ -388,8 +387,11 @@ namespace Simulateur_des
                     //    Jeter.Image = Resource.dice_game_gamble_roll_label_64;
                     //}));
                 }
-                MessageBox.Show(show);
-
+                DialogResult dialogResult = MessageBox.Show(show, "421", MessageBoxButtons.OKCancel);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    victoire = true;
+                }
             }
         }
     }

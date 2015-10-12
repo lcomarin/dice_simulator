@@ -12,17 +12,6 @@ namespace Simulateur_des
         public Boolean pipe;
         public int[] Valeurs;
 
-        public DeGenerique()
-        {
-            Face = 6;
-            pipe = false;
-            Valeurs = new int[Face];
-            for (int i=0;i< Face; i++)
-            {
-                Valeurs[i] = i + 1;
-            }
-        }
-
         public DeGenerique(int f)
         {
             Face = f;
