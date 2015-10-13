@@ -18,3 +18,13 @@ G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.Propert
 G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.Resource.resources
 G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.Form1.resources
 G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.csproj.GenerateResource.Cache
+D:\Travail\CESI\S16\CSharp\dice_simulator-master\dice_simulator-master4\Simulateur_des\bin\Debug\Simulateur_des.exe.config
+D:\Travail\CESI\S16\CSharp\dice_simulator-master\dice_simulator-master4\Simulateur_des\obj\Debug\Simulateur_des.exe
+D:\Travail\CESI\S16\CSharp\dice_simulator-master\dice_simulator-master4\Simulateur_des\obj\Debug\Simulateur_des.pdb
+D:\Travail\CESI\S16\CSharp\dice_simulator-master\dice_simulator-master4\Simulateur_des\obj\Debug\Simulateur_des.csprojResolveAssemblyReference.cache
+D:\Travail\CESI\S16\CSharp\dice_simulator-master\dice_simulator-master4\Simulateur_des\obj\Debug\Simulateur_des.Properties.Resources.resources
+D:\Travail\CESI\S16\CSharp\dice_simulator-master\dice_simulator-master4\Simulateur_des\obj\Debug\Simulateur_des.Resource.resources
+D:\Travail\CESI\S16\CSharp\dice_simulator-master\dice_simulator-master4\Simulateur_des\obj\Debug\Simulateur_des.Form1.resources
+D:\Travail\CESI\S16\CSharp\dice_simulator-master\dice_simulator-master4\Simulateur_des\obj\Debug\Simulateur_des.csproj.GenerateResource.Cache
+D:\Travail\CESI\S16\CSharp\dice_simulator-master\dice_simulator-master4\Simulateur_des\bin\Debug\Simulateur_des.exe
+D:\Travail\CESI\S16\CSharp\dice_simulator-master\dice_simulator-master4\Simulateur_des\bin\Debug\Simulateur_des.pdb

@@ -128,18 +128,28 @@ namespace Simulateur_des
                     DeGenerique dg = new DeGenerique(face);
                     Lancer l = new Lancer(dg, int.Parse(nb_des.Text));
                     l.roll();
+                    Thread.Sleep(2500);
                     journal.maj(l);
                     for (int i = 0; i < l.Lancers.Length - 1; i++)
                     {
                         show += l.Lancers[i] + " + ";
                     }
                     show += l.Lancers[l.Lancers.Length - 1] + " = " + l.resultat + " .";
-                    if (obj_text.Text != "")
+
+                    if(obj_text.Text != "")
                     {
-                        Jeu j = new Jeu(int.Parse(obj_text.Text), Condition, l);
-                        j.ResultatJeu();
+                        if (((int.Parse(obj_text.Text) <= int.Parse(nb_des.Text)) && (Condition == "<")) || ((int.Parse(obj_text.Text) < (int.Parse(nb_des.Text)) && Condition == "=") || (int.Parse(obj_text.Text) >= (int.Parse(nb_des.Text) * face) && Condition == ">")))
+                        {
+                            MessageBox.Show("Votre objectif ne peut pas être atteint.");
+                            show = "";
+                        }
+                        else
+                        {
+                            Jeu j = new Jeu(int.Parse(obj_text.Text), Condition, l);
+                            j.ResultatJeu();
+                        }
                     }
-                    Thread.Sleep(2500);
+
                     AffRes.Invoke((Action)(() =>
                     {
                         AffRes.Text = show;
@@ -199,8 +209,8 @@ namespace Simulateur_des
                             {
                                 Jeu j = new Jeu(int.Parse(obj_text.Text), Condition, l);
                                 j.ResultatJeu();
+                                AffRes.Text = show;
                             }
-                            AffRes.Text = show;
                             Jeter.Image = Resource.dice_game_gamble_roll_label_64;
                         }));
                     }
@@ -237,7 +247,8 @@ namespace Simulateur_des
             if (piped_values.Text == "")
             {
                 Thread waiting = new Thread(calcul);
-                if (face==4)
+
+                if (face == 4)
                 {
                     Jeter.Image = Resource.d4_gif;
                 }
@@ -266,6 +277,7 @@ namespace Simulateur_des
                     Jeter.Image = Resource.d100_gif;
                 }
                 waiting.Start();
+
             }
             else
             {
@@ -304,16 +316,26 @@ namespace Simulateur_des
         private void obj_inf_Click(object sender, EventArgs e)
         {
             Condition = "<";
+            obj_inf.BackColor = Color.LightBlue;
+            obj_egal.BackColor = Color.Transparent;
+            obj_sup.BackColor = Color.Transparent;
+
         }
 
         private void obj_egal_Click(object sender, EventArgs e)
         {
             Condition = "=";
+            obj_inf.BackColor = Color.Transparent;
+            obj_egal.BackColor = Color.LightBlue;
+            obj_sup.BackColor = Color.Transparent;
         }
 
         private void obj_sup_Click(object sender, EventArgs e)
         {
             Condition = ">";
+            obj_inf.BackColor = Color.Transparent;
+            obj_egal.BackColor = Color.Transparent;
+            obj_sup.BackColor = Color.LightBlue;
         }
 
         private void ajout_de_Click(object sender, EventArgs e)
