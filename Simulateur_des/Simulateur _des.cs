@@ -135,32 +135,48 @@ namespace Simulateur_des
         {
             if (Condition == "<")
             {
-                bool inf = false;
+                int somme_valeurs = valeurs[0];
                 for (int i = 0; i < valeurs.Length; i++)
                 {
-                    if(valeurs[i] < int.Parse(obj_text.Text))
+                    if (valeurs[i] < somme_valeurs)
                     {
-                        inf = true;
+                        somme_valeurs = valeurs[i];
                     }
                 }
-                if (!inf)
+                if ((somme_valeurs * face) > int.Parse(obj_text.Text))
                 {
+                    MessageBox.Show("Votre objectif ne peut pas être atteint.");
+                    show = "";
                     verif_jeu = false;
                 }
             }
             else if (Condition == "=")
             {
-
+                if ( int.Parse(nb_des.Text) <= 3){
+                    bool possible = false;
+                    {
+                        
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nous ne pouvons vérifier si votre égalité est possible.");
+                }
             }
             else if (Condition == ">")
             {
                 int somme_valeurs = 0;
                 for (int i = 0; i < valeurs.Length; i++)
                 {
-                    somme_valeurs += valeurs[i];
+                    if (valeurs[i] > somme_valeurs)
+                    {
+                        somme_valeurs = valeurs[i];
+                    }
                 }
-                if (somme_valeurs < int.Parse(obj_text.Text))
+                if ((somme_valeurs*face) < int.Parse(obj_text.Text))
                 {
+                    MessageBox.Show("Votre objectif ne peut pas être atteint.");
+                    show = "";
                     verif_jeu = false;
                 }
             }
@@ -176,16 +192,15 @@ namespace Simulateur_des
             {
                 if (verif_nb(nb_des.Text))
                 {
-                    DeGenerique dg = new DeGenerique(face);
-                    Lancer l = new Lancer(dg, int.Parse(nb_des.Text));
-                    l.roll();
-
                     if (obj_text.Text != "")
                     {
                         jeu();
                     }
                     if (verif_jeu)
                     {
+                        DeGenerique dg = new DeGenerique(face);
+                        Lancer l = new Lancer(dg, int.Parse(nb_des.Text));
+                        l.roll();
                         Thread.Sleep(2500);
                         journal.maj(l);
                         for (int i = 0; i < l.Lancers.Length - 1; i++)
@@ -236,36 +251,39 @@ namespace Simulateur_des
                 {
                     if (verif_nb(nb_des.Text))
                     {
-                        DePipe dp = new DePipe(temp_val.Length, temp_val);
-                        Lancer l = new Lancer(dp, int.Parse(nb_des.Text));
-                        l.roll();
-                        journal.maj(l);
-                        for (int i = 0; i < l.Lancers.Length; i++)
+                        if (verif_jeu)
                         {
-                            if (i < l.Lancers.Length - 1)
+                            DePipe dp = new DePipe(temp_val.Length, temp_val);
+                            Lancer l = new Lancer(dp, int.Parse(nb_des.Text));
+                            l.roll();
+                            journal.maj(l);
+                            for (int i = 0; i < l.Lancers.Length; i++)
                             {
-                                show += l.Lancers[i] + " + ";
+                                if (i < l.Lancers.Length - 1)
+                                {
+                                    show += l.Lancers[i] + " + ";
+                                }
                             }
+                            show += l.Lancers[l.Lancers.Length - 1] + " = " + l.resultat + " .";
+                            Thread.Sleep(2500);
+                            AffRes.Invoke((Action)(() =>
+                            {
+                                if (obj_text.Text != "")
+                                {
+                                    Jeu j = new Jeu(int.Parse(obj_text.Text), Condition, l);
+                                    j.ResultatJeu();
+                                    AffRes.Text = show;
+                                }
+                                Jeter.Image = Resource.dice_game_gamble_roll_label_64;
+                            }));
                         }
-                        show += l.Lancers[l.Lancers.Length - 1] + " = " + l.resultat + " .";
-                        Thread.Sleep(2500);
-                        AffRes.Invoke((Action)(() =>
-                        {
-                            if (obj_text.Text != "")
-                            {
-                                Jeu j = new Jeu(int.Parse(obj_text.Text), Condition, l);
-                                j.ResultatJeu();
-                                AffRes.Text = show;
-                            }
-                            Jeter.Image = Resource.dice_game_gamble_roll_label_64;
-                        }));
                     }
                     else
                     {
                         MessageBox.Show("Vérifiez le nombre de dés que vous avez entré.");
                         Jeter.Image = Resource.dice_game_gamble_roll_label_64;
                     }
-            }
+                }
             }
             else
             {
