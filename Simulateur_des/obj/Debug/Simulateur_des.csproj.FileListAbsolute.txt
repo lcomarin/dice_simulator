@@ -1,0 +1,20 @@
+C:\Users\1375786\documents\visual studio 2015\Projects\Simulateur_des\Simulateur_des\bin\Debug\Simulateur_des.exe.config
+C:\Users\1375786\documents\visual studio 2015\Projects\Simulateur_des\Simulateur_des\bin\Debug\Simulateur_des.exe
+C:\Users\1375786\documents\visual studio 2015\Projects\Simulateur_des\Simulateur_des\bin\Debug\Simulateur_des.pdb
+C:\Users\1375786\documents\visual studio 2015\Projects\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.csprojResolveAssemblyReference.cache
+C:\Users\1375786\documents\visual studio 2015\Projects\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.Properties.Resources.resources
+C:\Users\1375786\documents\visual studio 2015\Projects\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.Resource.resources
+C:\Users\1375786\documents\visual studio 2015\Projects\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.Form1.resources
+C:\Users\1375786\documents\visual studio 2015\Projects\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.csproj.GenerateResource.Cache
+C:\Users\1375786\documents\visual studio 2015\Projects\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.exe
+C:\Users\1375786\documents\visual studio 2015\Projects\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.pdb
+G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\bin\Debug\Simulateur_des.exe.config
+G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.exe
+G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.pdb
+G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\bin\Debug\Simulateur_des.exe
+G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\bin\Debug\Simulateur_des.pdb
+G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.csprojResolveAssemblyReference.cache
+G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.Properties.Resources.resources
+G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.Resource.resources
+G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.Form1.resources
+G:\CESI\C#\Projet\Simulateur_des\Simulateur_des\obj\Debug\Simulateur_des.csproj.GenerateResource.Cache

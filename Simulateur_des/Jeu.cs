@@ -28,19 +28,19 @@ namespace Simulateur_des
                     if (Jet.resultat < Objectif)
                         MessageBox.Show("Jet réussi!");
                     else
-                        MessageBox.Show("Echec du jet: Vous n'avez pas atteint l'objectif fixé(le résultat devait être inférieur à"+Objectif+").");
+                        MessageBox.Show("Echec du jet: Vous n'avez pas atteint l'objectif fixé (le résultat devait être inférieur à " + Objectif + ").");
                     break;
                 case "=":
                     if (Jet.resultat == Objectif)
                         MessageBox.Show("Jet réussi!");
                     else
-                        MessageBox.Show("Echec du jet: Vous n'avez pas atteint l'objectif fixé(le résultat devait être égal à" + Objectif + ").");
+                        MessageBox.Show("Echec du jet: Vous n'avez pas atteint l'objectif fixé (le résultat devait être égal à " + Objectif + ").");
                     break;
                 case ">":
                     if (Jet.resultat > Objectif)
                         MessageBox.Show("Jet réussi!");
                     else
-                        MessageBox.Show("Echec du jet: Vous n'avez pas atteint l'objectif fixé(le résultat devait être supérieur à" + Objectif + ").");
+                        MessageBox.Show("Echec du jet: Vous n'avez pas atteint l'objectif fixé (le résultat devait être supérieur à " + Objectif + ").");
                     break;
             }
         }
