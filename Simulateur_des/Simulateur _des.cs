@@ -18,6 +18,7 @@ namespace Simulateur_des
         String show;
         Historique journal;
         Random randy= new Random();
+        Boolean verif_jeu = true;
 
         public Form1()
         {
@@ -115,6 +116,56 @@ namespace Simulateur_des
             //results = new int[int.Parse(textBox3.Text)];
         }
 
+        public void jeu()
+        {
+            if (((int.Parse(obj_text.Text) <= int.Parse(nb_des.Text)) && (Condition == "<")) || ((int.Parse(obj_text.Text) < (int.Parse(nb_des.Text)) && Condition == "=") || ((int.Parse(obj_text.Text) > (int.Parse(nb_des.Text) * face) && Condition == "=") || (int.Parse(obj_text.Text) >= (int.Parse(nb_des.Text) * face) && Condition == ">")))
+            {
+                MessageBox.Show("Votre objectif ne peut pas être atteint.");
+                show = "";
+                verif_jeu = false;
+            }
+            else
+            {
+                Jeu j = new Jeu(int.Parse(obj_text.Text), Condition, l);
+                j.ResultatJeu();
+            }
+        }
+
+        public void jeu_pipe(int[] valeurs)
+        {
+            if (Condition == "<")
+            {
+                bool inf = false;
+                for (int i = 0; i < valeurs.Length; i++)
+                {
+                    if(valeurs[i] < int.Parse(obj_text.Text))
+                    {
+                        inf = true;
+                    }
+                }
+                if (!inf)
+                {
+                    verif_jeu = false;
+                }
+            }
+            else if (Condition == "=")
+            {
+
+            }
+            else if (Condition == ">")
+            {
+                int somme_valeurs = 0;
+                for (int i = 0; i < valeurs.Length; i++)
+                {
+                    somme_valeurs += valeurs[i];
+                }
+                if (somme_valeurs < int.Parse(obj_text.Text))
+                {
+                    verif_jeu = false;
+                }
+            }
+        }
+
         public void calcul()
         {
             if (face == 0)
@@ -128,33 +179,28 @@ namespace Simulateur_des
                     DeGenerique dg = new DeGenerique(face);
                     Lancer l = new Lancer(dg, int.Parse(nb_des.Text));
                     l.roll();
-                    Thread.Sleep(2500);
-                    journal.maj(l);
-                    for (int i = 0; i < l.Lancers.Length - 1; i++)
-                    {
-                        show += l.Lancers[i] + " + ";
-                    }
-                    show += l.Lancers[l.Lancers.Length - 1] + " = " + l.resultat + " .";
 
-                    if(obj_text.Text != "")
+                    if (obj_text.Text != "")
                     {
-                        if (((int.Parse(obj_text.Text) <= int.Parse(nb_des.Text)) && (Condition == "<")) || ((int.Parse(obj_text.Text) < (int.Parse(nb_des.Text)) && Condition == "=") || (int.Parse(obj_text.Text) >= (int.Parse(nb_des.Text) * face) && Condition == ">")))
-                        {
-                            MessageBox.Show("Votre objectif ne peut pas être atteint.");
-                            show = "";
-                        }
-                        else
-                        {
-                            Jeu j = new Jeu(int.Parse(obj_text.Text), Condition, l);
-                            j.ResultatJeu();
-                        }
+                        jeu();
                     }
-
-                    AffRes.Invoke((Action)(() =>
+                    if (verif_jeu)
                     {
-                        AffRes.Text = show;
-                        Jeter.Image = Resource.dice_game_gamble_roll_label_64;
-                    }));
+                        Thread.Sleep(2500);
+                        journal.maj(l);
+                        for (int i = 0; i < l.Lancers.Length - 1; i++)
+                        {
+                            show += l.Lancers[i] + " + ";
+                        }
+                        show += l.Lancers[l.Lancers.Length - 1] + " = " + l.resultat + " .";
+
+                        AffRes.Invoke((Action)(() =>
+                        {
+                            AffRes.Text = show;
+                            Jeter.Image = Resource.dice_game_gamble_roll_label_64;
+                        }));
+
+                    }
                 }
                 else
                 {
