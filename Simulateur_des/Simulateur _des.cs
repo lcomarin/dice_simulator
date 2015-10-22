@@ -187,56 +187,44 @@ namespace Simulateur_des
 
         public Boolean verif_egalite_pipe(bool vrai, int nb_des, int[] values)
         {
-            if (nb_des > 1)
+            if (nb_des == 1)
             {
-                nb_des--;
-                vrai=verif_egalite_pipe(vrai, nb_des, values);
-                if (vrai == true)
+                for (int i = 0; i < values.Length; i++)
                 {
-                    return true;
+                    if (values[i] == int.Parse(obj_text.Text))
+                    {
+                        return true;
+                    }
                 }
             }
-            else
+            else if (nb_des == 2)
             {
-                if (nb_des == 1)
+                for(int j=0; j< values.Length; j++)
                 {
                     for (int i = 0; i < values.Length; i++)
                     {
-                        if (values[i] == int.Parse(obj_text.Text))
+                        if ((values[j]+values[i]) == int.Parse(obj_text.Text))
                         {
                             return true;
                         }
                     }
                 }
-                else if (nb_des == 2)
+            }
+            else
+            {
+                for (int k = 0; k < values.Length; k++)
                 {
-                    for(int j=0; j< values.Length; j++)
+                    for (int j = 0; j < values.Length; j++)
                     {
                         for (int i = 0; i < values.Length; i++)
                         {
-                            if ((values[j]+values[i]) == int.Parse(obj_text.Text))
+                            if ((values[j] + values[i]) == int.Parse(obj_text.Text))
                             {
                                 return true;
                             }
                         }
                     }
-                }
-                else
-                {
-                    for (int k = 0; k < values.Length; k++)
-                    {
-                        for (int j = 0; j < values.Length; j++)
-                        {
-                            for (int i = 0; i < values.Length; i++)
-                            {
-                                if ((values[j] + values[i]) == int.Parse(obj_text.Text))
-                                {
-                                    return true;
-                                }
-                            }
-                        }
 
-                    }
                 }
             }
             return false;
