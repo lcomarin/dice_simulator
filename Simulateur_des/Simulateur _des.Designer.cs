@@ -121,7 +121,6 @@ namespace Simulateur_des
             this.nb_des.Name = "nb_des";
             this.nb_des.Size = new System.Drawing.Size(129, 20);
             this.nb_des.TabIndex = 14;
-            this.nb_des.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // obj_sup
             // 

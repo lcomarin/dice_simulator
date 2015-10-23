@@ -111,10 +111,6 @@ namespace Simulateur_des
             d100.Image = Resource.d100_selected;
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            //results = new int[int.Parse(textBox3.Text)];
-        }
 
         public void jeu()
         {
@@ -139,7 +135,7 @@ namespace Simulateur_des
                         min_valeurs = valeurs[i];
                     }
                 }
-                if ((min_valeurs * face) > int.Parse(obj_text.Text))
+                if ((min_valeurs * int.Parse(nb_des.Text)) >= int.Parse(obj_text.Text))
                 {
                     MessageBox.Show("Votre objectif ne peut pas être atteint.");
                     Jeter.Image = Resource.dice_game_gamble_roll_label_64;
@@ -175,7 +171,7 @@ namespace Simulateur_des
                         max_valeurs = valeurs[i];
                     }
                 }
-                if ((max_valeurs * face) < int.Parse(obj_text.Text))
+                if ((max_valeurs * int.Parse(nb_des.Text)) <= int.Parse(obj_text.Text))
                 {
                     MessageBox.Show("Votre objectif ne peut pas être atteint.");
                     Jeter.Image = Resource.dice_game_gamble_roll_label_64;
@@ -210,7 +206,7 @@ namespace Simulateur_des
                     }
                 }
             }
-            else
+            else if (nb_des == 3)
             {
                 for (int k = 0; k < values.Length; k++)
                 {
@@ -218,7 +214,7 @@ namespace Simulateur_des
                     {
                         for (int i = 0; i < values.Length; i++)
                         {
-                            if ((values[j] + values[i]) == int.Parse(obj_text.Text))
+                            if ((values[k] + values[j] + values[i]) == int.Parse(obj_text.Text))
                             {
                                 return true;
                             }
@@ -249,7 +245,7 @@ namespace Simulateur_des
                         DeGenerique dg = new DeGenerique(face);
                         Lancer l = new Lancer(dg, int.Parse(nb_des.Text));
                         l.roll();
-                        Thread.Sleep(2500);
+                        Thread.Sleep(1500);
                         journal.maj(l);
                         for (int i = 0; i < l.Lancers.Length - 1; i++)
                         {
@@ -260,14 +256,17 @@ namespace Simulateur_des
                         {
                             Jeu j = new Jeu(int.Parse(obj_text.Text), Condition, l);
                             j.ResultatJeu();
-                            AffRes.Text = show;
                         }
                         AffRes.Invoke((Action)(() =>
                         {
                             AffRes.Text = show;
                             Jeter.Image = Resource.dice_game_gamble_roll_label_64;
                         }));
-
+                    }
+                    else
+                    {
+                        Jeter.Image = Resource.dice_game_gamble_roll_label_64;
+                        verif_jeu = true;
                     }
                 }
                 else
@@ -322,17 +321,22 @@ namespace Simulateur_des
                                 }
                             }
                             show += l.Lancers[l.Lancers.Length - 1] + " = " + l.resultat + " .";
-                            Thread.Sleep(2500);
+                            Thread.Sleep(1500);
                             AffRes.Invoke((Action)(() =>
                             {
                                 if (obj_text.Text != "")
                                 {
                                     Jeu j = new Jeu(int.Parse(obj_text.Text), Condition, l);
                                     j.ResultatJeu();
-                                    AffRes.Text = show;
                                 }
+                                AffRes.Text = show;
                                 Jeter.Image = Resource.dice_game_gamble_roll_label_64;
                             }));
+                        }
+                        else
+                        {
+                            verif_jeu = true;
+                            Jeter.Image = Resource.dice_game_gamble_roll_label_64;
                         }
                     }
                     else
